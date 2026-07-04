@@ -1,33 +1,54 @@
 #include <stdio.h>
+#include <string.h>
 
-int main() {
-    char mssv[20];
-    char hoten[100];
+int main(void) {
+    char mssv[9];      // 8 ký tự + 1 ký tự kết thúc '\0'
+    char hoten[100];   // họ tên có thể có dấu cách
     int namsinh;
     float diemtb;
-    
-    // Nhập thông tin
-    printf("Nhap MSSV: ");
-    scanf("%s", mssv);
-    
+    int c;
+
+    // Nhập MSSV (tối đa 8 ký tự)
+    printf("Nhap MSSV (toi da 8 ky tu): ");
+    if (scanf("%8s", mssv) != 1) {
+        printf("Loi: khong nhap duoc MSSV.\n");
+        return 1;
+    }
+    // Xóa phần còn lại của dòng nếu có
+    while ((c = getchar()) != '\n' && c != EOF);
+
+    // Nhập họ tên bằng fgets để cho phép dấu cách
     printf("Nhap Ho Va Ten: ");
-    scanf(" %[^\n]", hoten);   // Cho phép nhập tên có dấu cách
-    
+    if (fgets(hoten, sizeof(hoten), stdin) == NULL) {
+        hoten[0] = '\0';
+    } else {
+        // Loại bỏ ký tự xuống dòng nếu có
+        hoten[strcspn(hoten, "\n")] = '\0';
+    }
+
+    // Nhập năm sinh (yêu cầu đúng kiểu số)
     printf("Nhap Nam Sinh: ");
-    scanf("%d", &namsinh);
-    
+    while (scanf("%d", &namsinh) != 1) {
+        printf("Nhap sai. Vui long nhap nam (chi la so): ");
+        while ((c = getchar()) != '\n' && c != EOF);
+    }
+
+    // Nhập điểm trung bình (yêu cầu đúng kiểu số thực)
     printf("Nhap Diem Trung Binh: ");
-    scanf("%f", &diemtb);
-    
-    // Tính tuổi
+    while (scanf("%f", &diemtb) != 1) {
+        printf("Nhap sai. Vui long nhap diem (vd: 7.5): ");
+        while ((c = getchar()) != '\n' && c != EOF);
+    }
+
+    // Tính tuổi (dùng năm hiện tại cố định là 2026 như ví dụ ban đầu)
     int tuoi = 2026 - namsinh;
-    
-    // Xuất thông tin theo đúng yêu cầu
+
+    // Xuất thông tin
     printf("\nMa so sinh vien: %s\n", mssv);
     printf("Ho Va Ten: %s\n", hoten);
     printf("Nam sinh: %d\n", namsinh);
     printf("Tuoi: %d\n", tuoi);
     printf("Diem Trung Binh: %.2f\n", diemtb);
-    
+
     return 0;
 }
