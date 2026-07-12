@@ -12,7 +12,7 @@ int main() {
     scanf("%8s", mssv);                    // Giới hạn 8 ký tự (7 + 1)
 
     printf("Nhap ho va ten: ");
-    getchar();                             // Xóa ký tự newline còn sótd
+    getchar();                             // Xóa ký tự newline còn sót
     fgets(hoten, sizeof(hoten), stdin);
     
     // Xóa ký tự newline ở cuối nếu có
