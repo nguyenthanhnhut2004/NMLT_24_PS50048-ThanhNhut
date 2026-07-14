@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-    char mssv[9];        // 7 ký tự + 1 ký tự dự phòng + null terminator
+    char mssv[9];        
     char hoten[100];
     int namsinh;
     float diemtb;
@@ -12,7 +12,7 @@ int main() {
     scanf("%8s", mssv);                    // Giới hạn 8 ký tự (7 + 1)
 
     printf("Nhap ho va ten: ");
-    getchar();                             // Xóa ký tự newline còn sót
+    getchar();                             // Xóa ký tự newline còn sótd
     fgets(hoten, sizeof(hoten), stdin);
     
     // Xóa ký tự newline ở cuối nếu có
