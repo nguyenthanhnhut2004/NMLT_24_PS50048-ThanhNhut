@@ -25,11 +25,11 @@ int main()
         case 0:
             printf(" Dang Thoat chuong trinh.\n");
             sleep(1);
-            printf("=======");
+            printf("|=======");
             sleep(1);
             printf("=================");
-            sleep(0.75);
-            printf("===========================100%%\n");
+            sleep(1);
+            printf("===========================|100%%\n");
             printf("Da Thoat chuong trinh thanh cong\n");
             printf("san pham thuc hanh LAP3 cua sinh Vien PS50048");
             break;
