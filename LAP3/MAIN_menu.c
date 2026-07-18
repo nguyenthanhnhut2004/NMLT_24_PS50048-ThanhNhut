@@ -1,18 +1,21 @@
 #include <stdio.h>
 #include <math.h>
-
-int main(void)
+#include <unistd.h>
+// lenh unistd.h them vao cho phep ngung 1 luc thoi gian ( Tham Khảo Gemini AI)
+// them include math.h để tính các phép tính phức tạp như căn bậc 2 ,...
+// lệnh include <math.h> tham khảo trên gemini AI
+int main()
 {
     int chon;
     do
     {
         printf("=================================\n");
-        printf("|   MENU CHUONG TRINH LAB 3     |\n");
+        printf("|   MENU CHUONG TRINH LAP 3      |\n");
         printf("=================================\n");
-        printf("| exit. Thoat chuong trinh.     |\n");
-        printf("| 1. Tinh hoc luc sinh vien     |\n");
-        printf("| 2. Giai phuong trinh bac 2    |\n");
-        printf("| 3. Tinh tien dien             |\n");
+        printf("|    0. Thoat chuong trinh       |\n");
+        printf("|    1. Tinh hoc luc sinh vien   |\n");
+        printf("|    2. Giai phuong trinh bac 2  |\n");
+        printf("|    3. Tinh Tien dien           |\n");
         printf("=================================\n");
         printf("Ban hay chon chuc nang (0 - 3): ");
         scanf("%d", &chon);
@@ -20,17 +23,19 @@ int main(void)
         switch (chon)
         {
         case 0:
-            printf("Chuc nang 0: 0. Thoat chuong trinh.\n");
-             printf("Da Thoat chuong trinh thanh cong");
+            printf(" Dang Thoat chuong trinh.\n");
+            sleep(1);
+            printf("Da Thoat chuong trinh thanh cong\n");
+            printf("san pham thuc hanh LAP3 cua sinh Vien PS50048");
             break;
 
         case 1:
         {
-            float diem;
-            printf("Chuc nang 1: 1. Tinh hoc luc sinh vien.\n");
-            printf("Nhap diem trung binh cua sinh vien: ");
-            scanf("%f", &diem);
-
+            float diem;                                          // tao bien so thuc
+            printf("Chuc nang 1: 1. Tinh hoc luc sinh vien.\n"); // xuat ra man hinh da cho so 1
+            printf("Nhap diem trung binh cua sinh vien: ");      // xuat man hinh nhap diem trung binh sv
+            scanf("%f", &diem);                                  // scanf de nhap bien tren ban phim
+            // lenh IF su dung cho yeu cau bai lap 3
             if (diem > 9)
             {
                 printf("Hoc luc xuat sac\n");
@@ -56,9 +61,10 @@ int main(void)
 
         case 2:
         {
-            float a, b, c;
-            float x1, x2, delta;
+
             printf("Chuc nang 2: 2. Giai phuong trinh bac 2.\n");
+            float a, b, c, x;
+            float x1, x2, delta;
             printf("nhap he so a: ");
             scanf("%f", &a);
             printf("nhap he so b: ");
@@ -66,12 +72,29 @@ int main(void)
             printf("nhap he so c: ");
             scanf("%f", &c);
 
-            if (a == 0)
+            if (a == 0) // neu a = 0 phuong trinh tro thanh phuong trinh bac 1 va tiep tuc giai phuong trinh
             {
-                printf("a = 0, loi: neu a = 0 thi phuong trinh bac 2 se tro thanh phuong trinh bac 1\n");
+                printf("a = 0 phuong trinh bac 2 se tro thanh phuong trinh bac 1 %f x + %f = 0\n", b, c);
+                sleep(1);
+                printf("Tien hanh giai toan phuong trinh bac 1\n");
+                if (b == 0 && c == 0)
+                {
+
+                    printf("Phuong Trinh co vo so nghiem\n");
+                }
+                else if (b == 0 && c != 0)
+                {
+                    printf("Phuong Trinh vo nghiem\n");
+                }
+                else
+                {
+                    x = -c / b;
+                    printf("Phuong trinh bac 1 co 1 nghiem: x = %3f\n", x);
+                }
             }
             else
             {
+                printf("Tinh delta\n");
                 delta = b * b - 4 * a * c;
                 printf("delta = %.2f\n", delta);
 
