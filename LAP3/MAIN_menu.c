@@ -3,7 +3,7 @@
 #include <unistd.h>
 // lenh unistd.h them vao cho phep ngung 1 luc thoi gian ( Tham Khảo Gemini AI)
 // them include math.h để tính các phép tính phức tạp như căn bậc 2 ,...
-// lệnh include <math.h> tham khảo trên gemini AI
+// lệnh include <math.h> them theon de bai 
 int main()
 {
     int chon;
@@ -25,6 +25,11 @@ int main()
         case 0:
             printf(" Dang Thoat chuong trinh.\n");
             sleep(1);
+            printf("=======");
+            sleep(1);
+            printf("=================");
+            sleep(0.75);
+            printf("===========================100%%\n");
             printf("Da Thoat chuong trinh thanh cong\n");
             printf("san pham thuc hanh LAP3 cua sinh Vien PS50048");
             break;
@@ -63,19 +68,20 @@ int main()
         {
 
             printf("Chuc nang 2: 2. Giai phuong trinh bac 2.\n");
-            float a, b, c, x;
+            int a, b, c;
             float x1, x2, delta;
+            float x;
             printf("nhap he so a: ");
-            scanf("%f", &a);
+            scanf("%2d", &a);
             printf("nhap he so b: ");
-            scanf("%f", &b);
+            scanf("%2d", &b);
             printf("nhap he so c: ");
-            scanf("%f", &c);
+            scanf("%2d", &c);
 
             if (a == 0) // neu a = 0 phuong trinh tro thanh phuong trinh bac 1 va tiep tuc giai phuong trinh
             {
-                printf("a = 0 phuong trinh bac 2 se tro thanh phuong trinh bac 1 %f x + %f = 0\n", b, c);
-                sleep(1);
+                printf("a = 0 phuong trinh bac 2 se tro thanh phuong trinh bac 1 %2d x + %2d = 0\n", b, c);
+                sleep(1); //lenh nay neu ai sao chep ma bi thay hoi se khong biet lenh nay la gi tru sv viet ctrinh
                 printf("Tien hanh giai toan phuong trinh bac 1\n");
                 if (b == 0 && c == 0)
                 {
@@ -89,26 +95,29 @@ int main()
                 else
                 {
                     x = -c / b;
-                    printf("Phuong trinh bac 1 co 1 nghiem: x = %3f\n", x);
+                    printf("Phuong trinh bac 1 co 1 nghiem: x = %2f\n", x);
                 }
             }
             else
             {
-                printf("Tinh delta\n");
+                printf("Bat dau tinh Delta\n");
                 delta = b * b - 4 * a * c;
+                sleep(1);
                 printf("delta = %.2f\n", delta);
 
                 if (delta < 0)
                 {
+                    sleep(1);
                     printf("phuong trinh vo nghiem\n");
                 }
                 else if (delta == 0)
                 {
                     x1 = -b / (2 * a);
+                    sleep(1);
                     printf("phuong trinh co nghiem kep: x1 = x2 = %.2f\n", x1);
                 }
                 else
-                {
+                {   sleep(0.5);
                     x1 = (-b + sqrt(delta)) / (2 * a);
                     x2 = (-b - sqrt(delta)) / (2 * a);
                     printf("phuong trinh co 2 nghiem phan biet: x1 = %.2f, x2 = %.2f\n", x1, x2);
@@ -117,7 +126,7 @@ int main()
             break;
         }
 
-        case 3:
+        case 3:// tinh tien dien
         {
             float KWH, TongTien;
             printf("Chuc nang 3: 3. Tinh tien dien.\n");
@@ -127,31 +136,37 @@ int main()
             if (KWH > 0 && KWH <= 50)
             {
                 TongTien = KWH * 1678;
+                sleep(0.5);
                 printf("Tong tien dien la: %.2f dong\n", TongTien);
             }
             else if (KWH > 50 && KWH <= 100)
             {
                 TongTien = KWH * 1734;
+                sleep(0.5);
                 printf("Tong tien dien la: %.2f dong\n", TongTien);
             }
             else if (KWH > 100 && KWH <= 200)
             {
                 TongTien = KWH * 2014;
+                sleep(0.5);
                 printf("Tong tien dien la: %.2f dong\n", TongTien);
             }
             else if (KWH > 200 && KWH <= 300)
             {
                 TongTien = KWH * 2536;
+                sleep(0.5);
                 printf("Tong tien dien la: %.2f dong\n", TongTien);
             }
             else if (KWH > 300 && KWH <= 400)
             {
                 TongTien = KWH * 2834;
+                sleep(0.5);
                 printf("Tong tien dien la: %.2f dong\n", TongTien);
             }
             else
             {
                 TongTien = KWH * 2927;
+                sleep(0.5);
                 printf("Tong tien dien la: %.2f dong\n", TongTien);
             }
             break;
