@@ -1,8 +1,7 @@
 #include <stdio.h>
 
 #define PI 3.14
-
-int main(void) {
+int main() {
     int chieu_dai, chieu_rong;
     float ban_kinh;
     float chu_vi_hcn, dien_tich_hcn;
@@ -19,7 +18,6 @@ int main(void) {
 
     printf("Nhap ban kinh hinh tron: ");
     scanf("%f", &ban_kinh);
-
     chu_vi_hinh_tron = 2 * PI * ban_kinh;
     dien_tich_hinh_tron = PI * ban_kinh * ban_kinh;
 
