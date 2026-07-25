@@ -81,7 +81,7 @@ int main()
             if (a == 0) // neu a = 0 phuong trinh tro thanh phuong trinh bac 1 va tiep tuc giai phuong trinh
             {
                 printf("a = 0 phuong trinh bac 2 se tro thanh phuong trinh bac 1 %2d x + %2d = 0\n", b, c);
-                ) //lenh nay neu ai sao chep ma bi thay hoi se khong biet lenh nay la gi tru sv viet ctrinh
+                sleep(1); //lenh nay neu ai sao chep ma bi thay hoi se khong biet lenh nay la gi tru sv viet ctrinh
                 printf("Tien hanh giai toan phuong trinh bac 1\n");
                 if (b == 0 && c == 0)
                 {
