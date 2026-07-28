@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <math.h>
 #include <unistd.h>
-// lenh unistd.h them vao cho phep ngung 1 luc thoi gian ( Tham Khảo Gemini AI)
-// them include math.h để tính các phép tính phức tạp như căn bậc 2 ,...
-// lệnh include <math.h> them theon de bai 
+// thuvien unistd.h them vao cho phep ngung 1 luc thoi gian ( Tham Khảo Gemini AI)
+// thuvien include math.h để tính các phép tính phức tạp như căn bậc 2 ,...
+// thuvien include <math.h> them theo de bai
 int main()
 {
     int chon;
@@ -81,7 +81,7 @@ int main()
             if (a == 0) // neu a = 0 phuong trinh tro thanh phuong trinh bac 1 va tiep tuc giai phuong trinh
             {
                 printf("a = 0 phuong trinh bac 2 se tro thanh phuong trinh bac 1 %2d x + %2d = 0\n", b, c);
-                sleep(1); //lenh nay neu ai sao chep ma bi thay hoi se khong biet lenh nay la gi tru sv viet ctrinh
+                sleep(1); // lenh nay neu ai sao chep ma bi thay hoi se khong biet lenh nay la gi tru sv viet ctrinh
                 printf("Tien hanh giai toan phuong trinh bac 1\n");
                 if (b == 0 && c == 0)
                 {
@@ -117,7 +117,8 @@ int main()
                     printf("phuong trinh co nghiem kep: x1 = x2 = %.2f\n", x1);
                 }
                 else
-                {   sleep(0.5);
+                {
+                    sleep(0.5);
                     x1 = (-b + sqrt(delta)) / (2 * a);
                     x2 = (-b - sqrt(delta)) / (2 * a);
                     printf("phuong trinh co 2 nghiem phan biet: x1 = %.2f, x2 = %.2f\n", x1, x2);
@@ -126,7 +127,7 @@ int main()
             break;
         }
 
-        case 3:// tinh tien dien
+        case 3: // tinh tien dien
         {
             float KWH, TongTien;
             printf("Chuc nang 3: 3. Tinh tien dien.\n");
