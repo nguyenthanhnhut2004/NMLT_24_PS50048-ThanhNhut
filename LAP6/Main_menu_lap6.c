@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <math.h>
 #include <float.h>
+float tinhTrungBinhCong(int a[], int n);
 
 void menu();
 void chucNang1();
@@ -57,7 +58,21 @@ void menu() {
     printf("+-----------------------------------------------------------+\n");
 }
 
-void chucNang1() {
+void chucNang1(){
+    int n;
+    int a[10];
+    printf("Nhap n: ");
+    scanf("%d",&n);
+    for(int i=0;i<n;i++){
+        printf("Nhap A[%d]= ",i);
+        scanf("%d",&a[i]);
+    }
+    float tbc = tinhTrungBinhCong(a,n);
+    if(tbc == -FLT_MAX){
+        printf("Khong co so chia het cho 3 va 5\n");
+    }else{
+        printf("Trung binh cong cua mang: %.2f\n",tbc);
+    }
 }
 
 void chucNang2() {
@@ -72,4 +87,19 @@ void chucNang4() {
 void chucNang5() {
 }
 
+float tinhTrungBinhCong(int a[], int n){
+    int sum = 0;
+    int count = 0;
+    for(int i=0;i<n;i++){
+        if(a[i]%3==0 && a[i]%5==0){
+            sum += a[i];
+            count++;
+        }
+    }
+    if(count == 0){
+        return -FLT_MAX;
+    }else{
+        return (float)sum/count;
+    }
+}
 
