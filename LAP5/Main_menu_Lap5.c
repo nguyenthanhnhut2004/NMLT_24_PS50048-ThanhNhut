@@ -47,11 +47,11 @@ void menu(){
     printf("+---------------------------------------------------+\n");
     printf("|             MENU CHƯƠNG TRÌNH LAB 5               |\n");
     printf("+---------------------------------------------------+\n");
-    printf("| 1. Tìm giá trị lớn nhất trong 3 số                |\n");
-    printf("| 2. Kiểm tra Năm nhuận                             |\n");
-    printf("| 3. Hoán vị 2 số (Sử dụng Con trỏ)                 |\n");
-    printf("| 4. Kiểm tra & Phân loại Tam giác                  |\n");
-    printf("| 5. Thoát chương trình                             |\n");
+    printf("| 1. Tim Gia Tri Lon Nhat Trong 3 So                |\n");
+    printf("| 2. Kiem Tra Nam Nhuan                             |\n");
+    printf("| 3. Hoan vi tri 2 so (Su dung con tro )            |\n");
+    printf("| 4. Kiem tra va phan loai tam giac                 |\n");
+    printf("| 5. Thoat Chuong trinh                             |\n");
     printf("+---------------------------------------------------+\n");
 }
 
