@@ -3,6 +3,7 @@
 #include <math.h>
 #include <float.h>
 float tinhTrungBinhCong(int a[], int n);
+void timMaxMin(int a[], int n);
 
 void menu();
 void chucNang1();
@@ -75,8 +76,18 @@ void chucNang1(){
     }
 }
 
-void chucNang2() {
+void chucNang2(){
+    int n;
+    int a[10];
+    printf("Nhap n: ");
+    scanf("%d",&n);
+    for(int i=0;i<n;i++){
+        printf("Nhap A[%d]= ",i);
+        scanf("%d",&a[i]);
+    }
+    timMaxMin(a,n);
 }
+
 
 void chucNang3() {
 }
@@ -103,3 +114,20 @@ float tinhTrungBinhCong(int a[], int n){
     }
 }
 
+void timMaxMin(int a[], int n){
+    //4 6 3 8
+    int min,max;
+    min=a[0]; //4
+    max=a[0]; //4
+    for(int i=1;i<n;i++){
+        if(min>a[i]){   //1   4 > 6  
+                        //2.  4 > 3   min = 3
+            min=a[i];
+        }
+        if(max<a[i]){   //1   4 < 6. max = 6
+                        //2   6 < 3
+            max=a[i]; 
+        }
+    }
+    printf("Min = %d\t Max = %d\n",min,max);
+}
