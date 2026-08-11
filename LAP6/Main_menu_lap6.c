@@ -4,6 +4,8 @@
 #include <float.h>
 float tinhTrungBinhCong(int a[], int n);
 void timMaxMin(int a[], int n);
+void sapXepGiamDan(int a[], int n);
+void swap(int *a, int *b);
 
 void menu();
 void chucNang1();
@@ -81,6 +83,10 @@ void chucNang2(){
     int a[10];
     printf("Nhap n: ");
     scanf("%d",&n);
+    if(n <= 0 || n > 10){
+        printf("So luong phan tu phai tu 1 den 10.\n");
+        return;
+    }
     for(int i=0;i<n;i++){
         printf("Nhap A[%d]= ",i);
         scanf("%d",&a[i]);
@@ -88,14 +94,91 @@ void chucNang2(){
     timMaxMin(a,n);
 }
 
+void chucNang3(){
+    int n;
+    int a[10];
+    printf("Nhap n: ");
+    scanf("%d",&n);
+    if(n <= 0 || n > 10){
+        printf("So luong phan tu phai tu 1 den 10.\n");
+        return;
+    }
+    for(int i=0;i<n;i++){
+        printf("Nhap A[%d]= ",i);
+        scanf("%d",&a[i]);
+    }
+    sapXepGiamDan(a,n);
+}
 
-void chucNang3() {
+void swap(int *a, int *b){
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
 void chucNang4() {
+    int m, n;
+    int a[10][10];
+    printf("Nhap so hang m: ");
+    scanf("%d", &m);
+    printf("Nhap so cot n: ");
+    scanf("%d", &n);
+    if(m <= 0 || m > 10 || n <= 0 || n > 10){
+        printf("So hang va so cot phai tu 1 den 10.\n");
+        return;
+    }
+    for(int i = 0; i < m; i++){
+        for(int j = 0; j < n; j++){
+            printf("Nhap A[%d][%d] = ", i, j);
+            scanf("%d", &a[i][j]);
+        }
+    }
+    printf("\nMa tran ban dau:\n");
+    for(int i = 0; i < m; i++){
+        for(int j = 0; j < n; j++){
+            printf("%d\t", a[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\nMa tran binh phuong:\n");
+    for(int i = 0; i < m; i++){
+        for(int j = 0; j < n; j++){
+            printf("%d\t", a[i][j] * a[i][j]);
+        }
+        printf("\n");
+    }
 }
 
 void chucNang5() {
+    int m, n;
+    int a[10][10];
+    bool found = false;
+    printf("Nhap so hang m: ");
+    scanf("%d", &m);
+    printf("Nhap so cot n: ");
+    scanf("%d", &n);
+    if(m <= 0 || m > 10 || n <= 0 || n > 10){
+        printf("So hang va so cot phai tu 1 den 10.\n");
+        return;
+    }
+    for(int i = 0; i < m; i++){
+        for(int j = 0; j < n; j++){
+            printf("Nhap A[%d][%d] = ", i, j);
+            scanf("%d", &a[i][j]);
+        }
+    }
+    printf("\nCac so le va vi tri cua chung trong ma tran:\n");
+    for(int i = 0; i < m; i++){
+        for(int j = 0; j < n; j++){
+            if(a[i][j] % 2 != 0){
+                printf("A[%d][%d] = %d\n", i, j, a[i][j]);
+                found = true;
+            }
+        }
+    }
+    if(!found){
+        printf("Khong co so le trong ma tran.\n");
+    }
 }
 
 float tinhTrungBinhCong(int a[], int n){
@@ -130,4 +213,18 @@ void timMaxMin(int a[], int n){
         }
     }
     printf("Min = %d\t Max = %d\n",min,max);
+}
+void sapXepGiamDan(int a[], int n){
+    //8 6 4 3.   n=4
+    for(int i=0;i<n-1;i++){         //i=3 < 4-1
+        for(int j=i+1;j<n;j++){     //j=3 <4
+            if(a[i] > a[j]){        //a[2] = 3. a[3] = 4
+                swap(&a[i],&a[j]);
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        printf("%d\t",a[i]);
+    }
+    printf("\n");
 }
