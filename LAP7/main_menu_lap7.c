@@ -144,5 +144,36 @@ void chucNang3(void) {
 }
 
 void chucNang4(void) {
-    
+    int n;
+    char nhiPhan[50];
+    int i = 0, j;
+
+    printf("\nNhap so thap phan nguyen duong: ");
+    scanf("%d", &n);
+    while (getchar() != '\n') {
+    }
+
+    if (n < 0) {
+        printf("Vui long nhap so nguyen duong!\n");
+        return;
+    }
+
+    if (n == 0) {
+        printf("So nhi phan: 0\n");
+        return;
+    }
+
+    while (n > 0) {
+        nhiPhan[i++] = (n % 2 == 0) ? '0' : '1';
+        n /= 2;
+    }
+    nhiPhan[i] = '\0';
+
+    for (j = 0; j < i / 2; j++) {
+        char temp = nhiPhan[j];
+        nhiPhan[j] = nhiPhan[i - 1 - j];
+        nhiPhan[i - 1 - j] = temp;
+    }
+
+    printf("So nhi phan: %s\n", nhiPhan);
 }
