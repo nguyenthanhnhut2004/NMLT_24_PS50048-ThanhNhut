@@ -113,8 +113,36 @@ void chucNang2(void) {
 }
 
 void chucNang3(void) {
-    
+    char s[5][50];
+    char temp[50];
+    int i, j;
+
+    printf("\nNhap 5 chuoi/ten: \n");
+    for (i = 0; i < 5; i++) {
+        printf("Chuoi %d: ", i + 1);
+        if (fgets(s[i], sizeof(s[i]), stdin) == NULL) {
+            printf("Khong co du lieu de xu ly.\n");
+            return;
+        }
+        s[i][strcspn(s[i], "\n")] = '\0';
+    }
+
+    for (i = 0; i < 4; i++) {
+        for (j = i + 1; j < 5; j++) {
+            if (strcmp(s[i], s[j]) > 0) {
+                strcpy(temp, s[i]);
+                strcpy(s[i], s[j]);
+                strcpy(s[j], temp);
+            }
+        }
+    }
+
+    printf("\nDanh sach sau khi sap xep tang dan theo Alphabet:\n");
+    for (i = 0; i < 5; i++) {
+        printf("%s\n", s[i]);
+    }
 }
+
 void chucNang4(void) {
     
 }
