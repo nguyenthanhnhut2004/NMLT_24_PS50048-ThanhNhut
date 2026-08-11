@@ -1,5 +1,6 @@
 #include <ctype.h>
 #include <stdio.h>
+#include <string.h>
 
 void menu(void);
 void chucNang1(void);
@@ -85,7 +86,30 @@ void chucNang1(void) {
 }
 
 void chucNang2(void) {
-    
+    char userSys[] = "admin";
+    char passSys[] = "123456";
+    char user[50];
+    char pass[50];
+
+    printf("\nNhap username: ");
+    if (fgets(user, sizeof(user), stdin) == NULL) {
+        printf("Khong co du lieu de xu ly.\n");
+        return;
+    }
+    user[strcspn(user, "\n")] = '\0';
+
+    printf("Nhap password: ");
+    if (fgets(pass, sizeof(pass), stdin) == NULL) {
+        printf("Khong co du lieu de xu ly.\n");
+        return;
+    }
+    pass[strcspn(pass, "\n")] = '\0';
+
+    if (strcmp(user, userSys) == 0 && strcmp(pass, passSys) == 0) {
+        printf("Dang nhap thanh cong!\n");
+    } else {
+        printf("Username hoac Password khong chinh xac!\n");
+    }
 }
 
 void chucNang3(void) {
