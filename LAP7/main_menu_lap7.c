@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include <stdio.h>
 
 void menu(void);
@@ -5,6 +6,7 @@ void chucNang1(void);
 void chucNang2(void);
 void chucNang3(void);
 void chucNang4(void);
+void demNguyenAmPhuAm(void);
 
 int main() {
     int chon;
@@ -45,16 +47,41 @@ void menu(void) {
     printf("+---------------------------------------------------+\n");
     printf("|             MENU CHUONG TRINH LAB 7               |\n");
     printf("+---------------------------------------------------+\n");
-    printf("| 1. Dem Nguyen am va Phu am trong chuoi           |\n");
-    printf("| 2. Dang nhap he thong (User & Password)          |\n");
-    printf("| 3. Sap xep danh sach Chuoi theo thu tu Alphabet  |\n");
-    printf("| 4. Chuyen doi so Thap phan sang Nhi phan (Chuoi) |\n");
+    printf("| 1. Dem Nguyen am va Phu am trong chuoi            |\n");
+    printf("| 2. Dang nhap he thong (User & Password)           |\n");
+    printf("| 3. Sap xep danh sach Chuoi theo thu tu Alphabet   |\n");
+    printf("| 4. Chuyen doi so Thap phan sang Nhi phan (Chuoi)  |\n");
     printf("| 5. Thoat chuong trinh                             |\n");
     printf("+---------------------------------------------------+\n");
 }
 
+void demNguyenAmPhuAm(void) {
+    char s[100];
+    int i;
+    int demNA = 0, demPA = 0;
+
+    printf("\nNhap chuoi ky tu: ");
+    if (fgets(s, sizeof(s), stdin) == NULL) {
+        printf("Khong co du lieu de xu ly.\n");
+        return;
+    }
+
+    for (i = 0; s[i] != '\0'; i++) {
+        char c = tolower((unsigned char)s[i]);
+
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+            demNA++;
+        } else if (isalpha((unsigned char)c)) {
+            demPA++;
+        }
+    }
+
+    printf("So luong nguyen am: %d\n", demNA);
+    printf("So luong phu am: %d\n", demPA);
+}
+
 void chucNang1(void) {
-    
+    demNguyenAmPhuAm();
 }
 
 void chucNang2(void) {
@@ -66,7 +93,4 @@ void chucNang3(void) {
 }
 void chucNang4(void) {
     
-}
-void chucNang5(void) {
-
 }
